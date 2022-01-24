@@ -124,13 +124,16 @@ FILE * openArchive(int a){
     char *nome_arquivo = (char *) malloc (20 * sizeof(char));
     char *tipo_abertura = (char *) malloc (3 * sizeof(char));
 
-    printf("Digite o nome do arquivo: ");
-    scanf(" %s", nome_arquivo);
+
+    if(a != -1){
+        printf("Digite o nome do arquivo: ");
+        scanf(" %s", nome_arquivo);
+    }
 
     //verifica se é o arquivo primario ou resultante e qual tipo de resultante sendo aberto
     if(a == -1){
         tipo_abertura = "r";
-        fp = fopen(strcat(nome_arquivo,".pgm"), tipo_abertura);
+        fp = fopen("exemplo.pgm", tipo_abertura);
     }
 
     if(a == 0 || a == 1){
